@@ -20,3 +20,30 @@
     b
     a)
 ; 4
+(cond ((= a 4) 6)
+      ((= b 4) (+ 6 7 a))
+      (else 25))
+; 16
+(+ 2 (if (> b a) b a))
+; 6
+(* (cond ((> a b) a)
+         ((< a b) b)
+         (else -1))
+   (+ a 1))
+; 16
+
+; 1-2
+(/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
+   (* 3 (- 6 2) (- 2 7)))
+
+; 1-3
+(define (sq_max_2_val x y z)
+  (cond ((= x (min x y z)) (+ (* y y) (* z z)))
+        ((= y (min x y z)) (+ (* x x) (* z z)))
+        (else (+ (* x x) (* y y)))))
+(sq_max_2_val 3 5 4)
+
+; 1-4
+(define (a-plus-abs-b a b)
+  ((if (> b 0) + -) a b))
+(a-plus-abs-b 4 -5)
